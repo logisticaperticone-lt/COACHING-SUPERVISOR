@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seguimiento de Coaching · Supervisores</title>
@@ -238,1285 +237,370 @@
     </div>
     <div class="actions-row">
       <button class="btn btn-primary" id="btnUpdate">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 3v6h-6"></path></svg>
         Actualizar base
       </button>
       <button class="btn" id="btnDownload">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
         Descargar HTML actualizado
       </button>
       <div class="upload-help">Subí el CSV exportado del formulario de respuestas (Archivo → Descargar → CSV en Google Sheets). Reemplaza toda la base por lo que traiga el archivo.</div>
       <input type="file" id="csvFileInput" accept=".csv" class="file-input-hidden">
     </div>
-    <div class="vendor-list" id="vendorList"></div>
+    <div class="vendor-list" id="vendorList"><div class="sup-group"><div class="sup-group-label">Martín Viqueira</div><div class="vendor-item">
+        <span class="badge badge-B">B</span>
+        <span class="name">Antual Paula<br><span class="meta">2 coachings · <span class="trend up">▲ 18.0 pts</span></span></span>
+      </div><div class="vendor-item active">
+        <span class="badge badge-B">B</span>
+        <span class="name">Fernando Moreno<br><span class="meta">4 coachings · <span class="trend up">▲ 8.3 pts</span></span></span>
+      </div><div class="vendor-item">
+        <span class="badge badge-A">A</span>
+        <span class="name">Lucas Olea<br><span class="meta">3 coachings · <span class="trend up">▲ 9.0 pts</span></span></span>
+      </div><div class="vendor-item">
+        <span class="badge badge-B">B</span>
+        <span class="name">Pedro Corsino<br><span class="meta">4 coachings · <span class="trend down">▼ 4.5 pts</span></span></span>
+      </div><div class="vendor-item">
+        <span class="badge badge-B">B</span>
+        <span class="name">Roberto Seco<br><span class="meta">3 coachings · <span class="trend up">▲ 11.8 pts</span></span></span>
+      </div></div></div>
   </aside>
 
   <main class="main" id="main">
-    <div class="empty-state" id="emptyState">
+    <div class="empty-state" id="emptyState" style="display: none;">
       <div class="cap-lg"></div>
       <p>Elegí un supervisor a la izquierda para ver su evolución en los coachings.</p>
     </div>
-    <div id="detailView" style="display:none;"></div>
+    <div id="detailView" style="display: block;">
+    <div class="head-row">
+      <div class="vendor-title">
+        <h2>Fernando Moreno</h2>
+        <div class="sub">Jefe de ventas actual: <b>Martín Viqueira</b> &nbsp;·&nbsp; 4 coachings registrados</div>
+      </div>
+      <div class="cap-hero">
+        <div class="cap-badge g-B"><div class="cap-inner">B</div></div>
+        <div class="cap-text">Último coaching<span class="pct num">73.8%</span></div>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="label">Coachings realizados</div>
+        <div class="value num">4</div>
+        <div class="sub">25 de feb de 2026 → 13 de ago de 2026</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Puntaje actual</div>
+        <div class="value num">73.8%</div>
+        <div class="sub">Nota B · promedio 2.92/4</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Evolución</div>
+        <div class="value num " style="color:var(--grade-a)">▲ 8.3 pts</div>
+        <div class="sub">vs. primer coaching (+8.3 pts)</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Pilar más débil (último)</div>
+        <div class="value num">69%</div>
+        <div class="sub">Cascadeo estrategia</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Evolución del puntaje</h3>
+      <p class="panel-sub">Total y desglose por pilar en cada coaching. Tocá una etiqueta para mostrar u ocultar esa serie.</p>
+      <div class="chart-wrap"><div id="trendChart"><svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet"><line class="gridline" x1="34" y1="266" x2="886" y2="266"></line><text class="axis-label" x="26" y="269" text-anchor="end">0%</text><line class="gridline" x1="34" y1="215.2" x2="886" y2="215.2"></line><text class="axis-label" x="26" y="218.2" text-anchor="end">20%</text><line class="gridline" x1="34" y1="164.4" x2="886" y2="164.4"></line><text class="axis-label" x="26" y="167.4" text-anchor="end">40%</text><line class="gridline" x1="34" y1="113.6" x2="886" y2="113.6"></line><text class="axis-label" x="26" y="116.6" text-anchor="end">60%</text><line class="gridline" x1="34" y1="62.80000000000001" x2="886" y2="62.80000000000001"></line><text class="axis-label" x="26" y="65.80000000000001" text-anchor="end">80%</text><line class="gridline" x1="34" y1="12" x2="886" y2="12"></line><text class="axis-label" x="26" y="15" text-anchor="end">100%</text><line class="gridline" x1="34" y1="266" x2="886" y2="266" style="stroke:var(--line); stroke-width:1.5;"></line><text class="x-label" x="140.5" y="290" text-anchor="middle">#1 · 25 de feb de 2026</text><g class="series-group" data-key="total" style=""><rect class="series-bar" x="59.56" y="99.63" width="30.776" height="166.37" rx="2" fill="#1B231F"><title>Total — Coaching #1 (25 de feb de 2026): 65.5%</title></rect></g><g class="series-group" data-key="capabilities" style=""><rect class="series-bar" x="92.336" y="100.9" width="30.776" height="165.1" rx="2" fill="#2F6F5E"><title>Capabilities — Coaching #1 (25 de feb de 2026): 65.0%</title></rect></g><g class="series-group" data-key="cascadeo" style=""><rect class="series-bar" x="125.112" y="75.5" width="30.776" height="190.5" rx="2" fill="#3E7CA6"><title>Cascadeo estrategia — Coaching #1 (25 de feb de 2026): 75.0%</title></rect></g><g class="series-group" data-key="oportunidades" style=""><rect class="series-bar" x="157.88799999999998" y="127.8748" width="30.776" height="138.1252" rx="2" fill="#C98A2B"><title>Oportunidades — Coaching #1 (25 de feb de 2026): 54.4%</title></rect></g><g class="series-group" data-key="liderazgo" style=""><rect class="series-bar" x="190.664" y="54.341800000000006" width="30.776" height="211.6582" rx="2" fill="#8C5EA8"><title>Liderazgo equipo — Coaching #1 (25 de feb de 2026): 83.3%</title></rect></g><text class="x-label" x="353.5" y="290" text-anchor="middle">#2 · 09 de abr de 2026</text><g class="series-group" data-key="total" style=""><rect class="series-bar" x="272.56" y="102.805" width="30.776" height="163.195" rx="2" fill="#1B231F"><title>Total — Coaching #2 (09 de abr de 2026): 64.3%</title></rect></g><g class="series-group" data-key="capabilities" style=""><rect class="series-bar" x="305.336" y="113.6" width="30.776" height="152.4" rx="2" fill="#2F6F5E"><title>Capabilities — Coaching #2 (09 de abr de 2026): 60.0%</title></rect></g><g class="series-group" data-key="cascadeo" style=""><rect class="series-bar" x="338.11199999999997" y="97.725" width="30.776" height="168.275" rx="2" fill="#3E7CA6"><title>Cascadeo estrategia — Coaching #2 (09 de abr de 2026): 66.3%</title></rect></g><g class="series-group" data-key="oportunidades" style=""><rect class="series-bar" x="370.888" y="100.9" width="30.776" height="165.1" rx="2" fill="#C98A2B"><title>Oportunidades — Coaching #2 (09 de abr de 2026): 65.0%</title></rect></g><g class="series-group" data-key="liderazgo" style=""><rect class="series-bar" x="403.664" y="96.6582" width="30.776" height="169.3418" rx="2" fill="#8C5EA8"><title>Liderazgo equipo — Coaching #2 (09 de abr de 2026): 66.7%</title></rect></g><text class="x-label" x="566.5" y="290" text-anchor="middle">#3 · 09 de jun de 2026</text><g class="series-group" data-key="total" style=""><rect class="series-bar" x="485.56" y="62.16499999999999" width="30.776" height="203.835" rx="2" fill="#1B231F"><title>Total — Coaching #3 (09 de jun de 2026): 80.3%</title></rect></g><g class="series-group" data-key="capabilities" style=""><rect class="series-bar" x="518.336" y="50.099999999999994" width="30.776" height="215.9" rx="2" fill="#2F6F5E"><title>Capabilities — Coaching #3 (09 de jun de 2026): 85.0%</title></rect></g><g class="series-group" data-key="cascadeo" style=""><rect class="series-bar" x="551.112" y="46.92500000000001" width="30.776" height="219.075" rx="2" fill="#3E7CA6"><title>Cascadeo estrategia — Coaching #3 (09 de jun de 2026): 86.3%</title></rect></g><g class="series-group" data-key="oportunidades" style=""><rect class="series-bar" x="583.888" y="80.2498" width="30.776" height="185.7502" rx="2" fill="#C98A2B"><title>Oportunidades — Coaching #3 (09 de jun de 2026): 73.1%</title></rect></g><g class="series-group" data-key="liderazgo" style=""><rect class="series-bar" x="616.664" y="54.341800000000006" width="30.776" height="211.6582" rx="2" fill="#8C5EA8"><title>Liderazgo equipo — Coaching #3 (09 de jun de 2026): 83.3%</title></rect></g><text class="x-label" x="779.5" y="290" text-anchor="middle">#4 · 13 de ago de 2026</text><g class="series-group" data-key="total" style=""><rect class="series-bar" x="698.56" y="78.67500000000001" width="30.776" height="187.325" rx="2" fill="#1B231F"><title>Total — Coaching #4 (13 de ago de 2026): 73.8%</title></rect></g><g class="series-group" data-key="capabilities" style=""><rect class="series-bar" x="731.3359999999999" y="75.5" width="30.776" height="190.5" rx="2" fill="#2F6F5E"><title>Capabilities — Coaching #4 (13 de ago de 2026): 75.0%</title></rect></g><g class="series-group" data-key="cascadeo" style=""><rect class="series-bar" x="764.112" y="91.375" width="30.776" height="174.625" rx="2" fill="#3E7CA6"><title>Cascadeo estrategia — Coaching #4 (13 de ago de 2026): 68.8%</title></rect></g><g class="series-group" data-key="oportunidades" style=""><rect class="series-bar" x="796.8879999999999" y="91.375" width="30.776" height="174.625" rx="2" fill="#C98A2B"><title>Oportunidades — Coaching #4 (13 de ago de 2026): 68.8%</title></rect></g><g class="series-group" data-key="liderazgo" style=""><rect class="series-bar" x="829.664" y="33.158199999999994" width="30.776" height="232.8418" rx="2" fill="#8C5EA8"><title>Liderazgo equipo — Coaching #4 (13 de ago de 2026): 91.7%</title></rect></g></svg></div></div>
+      <div class="legend-toggle" id="legendToggle">
+    <span class="legend-chip " data-key="total">
+      <span class="dot" style="background:#1B231F"></span>Total
+    </span>
+  
+    <span class="legend-chip " data-key="capabilities">
+      <span class="dot" style="background:#2F6F5E"></span>Capabilities
+    </span>
+  
+    <span class="legend-chip " data-key="cascadeo">
+      <span class="dot" style="background:#3E7CA6"></span>Cascadeo estrategia
+    </span>
+  
+    <span class="legend-chip " data-key="oportunidades">
+      <span class="dot" style="background:#C98A2B"></span>Oportunidades
+    </span>
+  
+    <span class="legend-chip " data-key="liderazgo">
+      <span class="dot" style="background:#8C5EA8"></span>Liderazgo equipo
+    </span>
+  </div>
+    </div>
+
+    <div class="panel">
+      <h3>Historial de coachings</h3>
+      <p class="panel-sub">Detalle cronológico, comentarios del supervisor y puntaje por pilar.</p>
+      <table class="hist">
+        <thead>
+          <tr><th>#</th><th>Fecha</th><th>Jefe de ventas</th><th>Total</th><th>Nota</th><th>Puntos a mejorar</th></tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td class="hist-num num">4</td>
+      <td class="num">13 de ago de 2026</td>
+      <td class="sup-tag">Martín Viqueira</td>
+      <td class="hist-num num">73.8%</td>
+      <td><span class="badge badge-B">B</span></td>
+      <td><div class="notes-cell">Buscar feedbacks mas profundos</div>
+    <div class="pilar-grid">
+      
+        <div class="pilar-cell">
+          <div class="pn">Capabilities</div>
+          <div class="pv num" style="color:#2F6F5E">75%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Cascadeo estrategia</div>
+          <div class="pv num" style="color:#3E7CA6">69%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Oportunidades</div>
+          <div class="pv num" style="color:#C98A2B">69%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Liderazgo equipo</div>
+          <div class="pv num" style="color:#8C5EA8">92%</div>
+        </div>
+      
+    </div>
+    
+      <details class="q-detail">
+        <summary>Capabilities claves para la posición — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Resiliente</span><span class="q-score">3/4</span></li><li><span>Excelencia</span><span class="q-score">3/4</span></li><li><span>Priorización</span><span class="q-score">3/4</span></li><li><span>Resolución de problemas</span><span class="q-score">2/4</span></li><li><span>Empatía</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Cascadeo de estrategia y entrega de resultados — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Analiza y desglosa performance de zona</span><span class="q-score">2/4</span></li><li><span>Respeta estructura de la matinal</span><span class="q-score">3/4</span></li><li><span>Conciencia de compromiso en planificación</span><span class="q-score">3/4</span></li><li><span>Selecciona con criterio los KPIs</span><span class="q-score">4/4</span></li><li><span>Potencia a promotores en planificación</span><span class="q-score">3/4</span></li><li><span>Chequea anomalías de performance diaria</span><span class="q-score">2/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Detección de oportunidades — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Conoce su cartera de clientes / Top clientes</span><span class="q-score">3/4</span></li><li><span>Sabe qué clientes son clave para Share cerveza</span><span class="q-score">2/4</span></li><li><span>Firme con su equipo en gestión de bajas/altas</span><span class="q-score">3/4</span></li><li><span>Conoce y gestiona los KPIs comerciales</span><span class="q-score">4/4</span></li><li><span>Revisa presencia de marcas necesarias en PDV</span><span class="q-score">3/4</span></li><li><span>Revisa negociación/saldo/contraprestación</span><span class="q-score">2/4</span></li><li><span>Revisa % de TS/Gasto del cliente</span><span class="q-score">1/4</span></li><li><span>Evalúa ejecución y destaque de marcas</span><span class="q-score">3/4</span></li><li><span>Revisa repago de equipos de frío</span><span class="q-score">2/4</span></li><li><span>Post ruta: feedback claro y plan de acción</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Liderar y desarrollar promotores — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Genera buen clima / honestidad y confianza</span><span class="q-score">4/4</span></li><li><span>Conoce fortalezas y puntos de mejora del equipo</span><span class="q-score">3/4</span></li><li><span>Se preocupa por potenciar a sus reportes</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+  </td>
+    </tr>
+  
+    <tr>
+      <td class="hist-num num">3</td>
+      <td class="num">09 de jun de 2026</td>
+      <td class="sup-tag">Martín Viqueira</td>
+      <td class="hist-num num">80.3%</td>
+      <td><span class="badge badge-B">B</span></td>
+      <td><div class="notes-cell">Contraprestaciones en negociaciones. Balanceo de las rutas y el seguimiento de altas. Buscar feedback más profundos y puntuales</div>
+    <div class="pilar-grid">
+      
+        <div class="pilar-cell">
+          <div class="pn">Capabilities</div>
+          <div class="pv num" style="color:#2F6F5E">85%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Cascadeo estrategia</div>
+          <div class="pv num" style="color:#3E7CA6">86%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Oportunidades</div>
+          <div class="pv num" style="color:#C98A2B">73%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Liderazgo equipo</div>
+          <div class="pv num" style="color:#8C5EA8">83%</div>
+        </div>
+      
+    </div>
+    
+      <details class="q-detail">
+        <summary>Capabilities claves para la posición — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Resiliente</span><span class="q-score">3/4</span></li><li><span>Excelencia</span><span class="q-score">3/4</span></li><li><span>Priorización</span><span class="q-score">4/4</span></li><li><span>Resolución de problemas</span><span class="q-score">3/4</span></li><li><span>Empatía</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Cascadeo de estrategia y entrega de resultados — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Analiza y desglosa performance de zona</span><span class="q-score">3/4</span></li><li><span>Respeta estructura de la matinal</span><span class="q-score">4/4</span></li><li><span>Conciencia de compromiso en planificación</span><span class="q-score">3/4</span></li><li><span>Selecciona con criterio los KPIs</span><span class="q-score">4/4</span></li><li><span>Potencia a promotores en planificación</span><span class="q-score">4/4</span></li><li><span>Chequea anomalías de performance diaria</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Detección de oportunidades — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Conoce su cartera de clientes / Top clientes</span><span class="q-score">4/4</span></li><li><span>Sabe qué clientes son clave para Share cerveza</span><span class="q-score">2/4</span></li><li><span>Firme con su equipo en gestión de bajas/altas</span><span class="q-score">2/4</span></li><li><span>Conoce y gestiona los KPIs comerciales</span><span class="q-score">4/4</span></li><li><span>Revisa presencia de marcas necesarias en PDV</span><span class="q-score">3/4</span></li><li><span>Revisa negociación/saldo/contraprestación</span><span class="q-score">3/4</span></li><li><span>Revisa % de TS/Gasto del cliente</span><span class="q-score">1/4</span></li><li><span>Evalúa ejecución y destaque de marcas</span><span class="q-score">3/4</span></li><li><span>Revisa repago de equipos de frío</span><span class="q-score">3/4</span></li><li><span>Post ruta: feedback claro y plan de acción</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Liderar y desarrollar promotores — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Genera buen clima / honestidad y confianza</span><span class="q-score">4/4</span></li><li><span>Conoce fortalezas y puntos de mejora del equipo</span><span class="q-score">3/4</span></li><li><span>Se preocupa por potenciar a sus reportes</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+  </td>
+    </tr>
+  
+    <tr>
+      <td class="hist-num num">2</td>
+      <td class="num">09 de abr de 2026</td>
+      <td class="sup-tag">Martín Viqueira</td>
+      <td class="hist-num num">64.3%</td>
+      <td><span class="badge badge-B">B</span></td>
+      <td><div class="notes-cell">Importancia de la firmeza ante clientes no dados de alta en la ruta o falta de gestión respecto de disponibilidad de productos focos, ejecuiones etc</div>
+    <div class="pilar-grid">
+      
+        <div class="pilar-cell">
+          <div class="pn">Capabilities</div>
+          <div class="pv num" style="color:#2F6F5E">60%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Cascadeo estrategia</div>
+          <div class="pv num" style="color:#3E7CA6">66%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Oportunidades</div>
+          <div class="pv num" style="color:#C98A2B">65%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Liderazgo equipo</div>
+          <div class="pv num" style="color:#8C5EA8">67%</div>
+        </div>
+      
+    </div>
+    
+      <details class="q-detail">
+        <summary>Capabilities claves para la posición — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Resiliente</span><span class="q-score">3/4</span></li><li><span>Excelencia</span><span class="q-score">2/4</span></li><li><span>Priorización</span><span class="q-score">3/4</span></li><li><span>Resolución de problemas</span><span class="q-score">2/4</span></li><li><span>Empatía</span><span class="q-score">2/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Cascadeo de estrategia y entrega de resultados — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Analiza y desglosa performance de zona</span><span class="q-score">2/4</span></li><li><span>Respeta estructura de la matinal</span><span class="q-score">3/4</span></li><li><span>Conciencia de compromiso en planificación</span><span class="q-score">3/4</span></li><li><span>Selecciona con criterio los KPIs</span><span class="q-score">3/4</span></li><li><span>Potencia a promotores en planificación</span><span class="q-score">3/4</span></li><li><span>Chequea anomalías de performance diaria</span><span class="q-score">2/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Detección de oportunidades — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Conoce su cartera de clientes / Top clientes</span><span class="q-score">3/4</span></li><li><span>Sabe qué clientes son clave para Share cerveza</span><span class="q-score">2/4</span></li><li><span>Firme con su equipo en gestión de bajas/altas</span><span class="q-score">2/4</span></li><li><span>Conoce y gestiona los KPIs comerciales</span><span class="q-score">4/4</span></li><li><span>Revisa presencia de marcas necesarias en PDV</span><span class="q-score">2/4</span></li><li><span>Revisa negociación/saldo/contraprestación</span><span class="q-score">3/4</span></li><li><span>Revisa % de TS/Gasto del cliente</span><span class="q-score">1/4</span></li><li><span>Evalúa ejecución y destaque de marcas</span><span class="q-score">3/4</span></li><li><span>Revisa repago de equipos de frío</span><span class="q-score">3/4</span></li><li><span>Post ruta: feedback claro y plan de acción</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Liderar y desarrollar promotores — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Genera buen clima / honestidad y confianza</span><span class="q-score">3/4</span></li><li><span>Conoce fortalezas y puntos de mejora del equipo</span><span class="q-score">2/4</span></li><li><span>Se preocupa por potenciar a sus reportes</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+  </td>
+    </tr>
+  
+    <tr>
+      <td class="hist-num num">1</td>
+      <td class="num">25 de feb de 2026</td>
+      <td class="sup-tag">Martín Viqueira</td>
+      <td class="hist-num num">65.5%</td>
+      <td><span class="badge badge-B">B</span></td>
+      <td><div class="notes-cell">Trabajar en la ejecución de las batallas críticas de cada PDV. Sermás firme con incumplimiento en cuanto a altas no realizadas en la zona</div>
+    <div class="pilar-grid">
+      
+        <div class="pilar-cell">
+          <div class="pn">Capabilities</div>
+          <div class="pv num" style="color:#2F6F5E">65%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Cascadeo estrategia</div>
+          <div class="pv num" style="color:#3E7CA6">75%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Oportunidades</div>
+          <div class="pv num" style="color:#C98A2B">54%</div>
+        </div>
+      
+        <div class="pilar-cell">
+          <div class="pn">Liderazgo equipo</div>
+          <div class="pv num" style="color:#8C5EA8">83%</div>
+        </div>
+      
+    </div>
+    
+      <details class="q-detail">
+        <summary>Capabilities claves para la posición — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Resiliente</span><span class="q-score">2/4</span></li><li><span>Excelencia</span><span class="q-score">2/4</span></li><li><span>Priorización</span><span class="q-score">3/4</span></li><li><span>Resolución de problemas</span><span class="q-score">3/4</span></li><li><span>Empatía</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Cascadeo de estrategia y entrega de resultados — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Analiza y desglosa performance de zona</span><span class="q-score">3/4</span></li><li><span>Respeta estructura de la matinal</span><span class="q-score">3/4</span></li><li><span>Conciencia de compromiso en planificación</span><span class="q-score">3/4</span></li><li><span>Selecciona con criterio los KPIs</span><span class="q-score">3/4</span></li><li><span>Potencia a promotores en planificación</span><span class="q-score">3/4</span></li><li><span>Chequea anomalías de performance diaria</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Detección de oportunidades — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Conoce su cartera de clientes / Top clientes</span><span class="q-score">2/4</span></li><li><span>Sabe qué clientes son clave para Share cerveza</span><span class="q-score">2/4</span></li><li><span>Firme con su equipo en gestión de bajas/altas</span><span class="q-score">2/4</span></li><li><span>Conoce y gestiona los KPIs comerciales</span><span class="q-score">3/4</span></li><li><span>Revisa presencia de marcas necesarias en PDV</span><span class="q-score">2/4</span></li><li><span>Revisa negociación/saldo/contraprestación</span><span class="q-score">2/4</span></li><li><span>Revisa % de TS/Gasto del cliente</span><span class="q-score">1/4</span></li><li><span>Evalúa ejecución y destaque de marcas</span><span class="q-score">2/4</span></li><li><span>Revisa repago de equipos de frío</span><span class="q-score">3/4</span></li><li><span>Post ruta: feedback claro y plan de acción</span><span class="q-score">3/4</span></li>
+        </ul>
+      </details>
+    
+      <details class="q-detail">
+        <summary>Liderar y desarrollar promotores — detalle de preguntas</summary>
+        <ul class="q-list">
+          <li><span>Genera buen clima / honestidad y confianza</span><span class="q-score">3/4</span></li><li><span>Conoce fortalezas y puntos de mejora del equipo</span><span class="q-score">3/4</span></li><li><span>Se preocupa por potenciar a sus reportes</span><span class="q-score">4/4</span></li>
+        </ul>
+      </details>
+    
+  </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="foot">Generado a partir de las respuestas del formulario de coaching · 4 registro(s) para Fernando Moreno</footer>
+  </div>
   </main>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">Base actualizada: 16 coachings · 5 supervisores</div>
 
-<script id="coaching-data" type="application/json">{
- "pilares_meta": [
-  {
-   "id": "capabilities",
-   "name": "Capabilities claves para la posición",
-   "short": "Capabilities"
-  },
-  {
-   "id": "cascadeo",
-   "name": "Cascadeo de estrategia y entrega de resultados",
-   "short": "Cascadeo estrategia"
-  },
-  {
-   "id": "oportunidades",
-   "name": "Detección de oportunidades",
-   "short": "Oportunidades"
-  },
-  {
-   "id": "liderazgo",
-   "name": "Liderar y desarrollar promotores",
-   "short": "Liderazgo equipo"
-  }
- ],
- "vendors": [
-  {
-   "nombre": "Antual Paula",
-   "supervisores": [
-    "Martín Viqueira"
-   ],
-   "supervisor_actual": "Martín Viqueira",
-   "n_coachings": 1,
-   "ultimo_total": 70.75,
-   "ultima_nota": "B",
-   "primer_total": 70.75,
-   "coachings": [
-    {
-     "promotor": "Antual Paula",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-08-14",
-     "fecha_ts": "2026-08-14T17:42:27",
-     "total_pct": 70.75,
-     "avg_score": 2.792,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 80.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 2.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 70.0,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 2.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 3.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 63.75,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 2.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 2.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 3.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 75.0,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 3.0
-        }
-       ]
-      }
-     ],
-     "notas": "Seguir afianzandosé en el puesto aprendiendo nuevos procesos",
-     "numero": 1,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    }
-   ]
-  },
-  {
-   "nombre": "Fernando Moreno",
-   "supervisores": [
-    "Martín Viqueira"
-   ],
-   "supervisor_actual": "Martín Viqueira",
-   "n_coachings": 2,
-   "ultimo_total": 73.75,
-   "ultima_nota": "B",
-   "primer_total": 80.25,
-   "coachings": [
-    {
-     "promotor": "Fernando Moreno",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-06-09",
-     "fecha_ts": "2026-06-09T09:17:56.888000",
-     "total_pct": 80.25,
-     "avg_score": 3.208,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 85.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 86.25,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 3.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 73.12,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 4.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 2.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 83.33,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 3.0
-        }
-       ]
-      }
-     ],
-     "notas": "Contraprestaciones en negociaciones. Balanceo de las rutas y el seguimiento de altas. Buscar feedback más profundos y puntuales",
-     "numero": 1,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    },
-    {
-     "promotor": "Fernando Moreno",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-08-13",
-     "fecha_ts": "2026-08-13T14:45:09",
-     "total_pct": 73.75,
-     "avg_score": 2.917,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 75.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 68.75,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 2.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 68.75,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 2.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 91.67,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      }
-     ],
-     "notas": "Buscar feedbacks mas profundos",
-     "numero": 2,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    }
-   ]
-  },
-  {
-   "nombre": "Lucas Olea",
-   "supervisores": [
-    "Martín Viqueira"
-   ],
-   "supervisor_actual": "Martín Viqueira",
-   "n_coachings": 1,
-   "ultimo_total": 95.25,
-   "ultima_nota": "A",
-   "primer_total": 95.25,
-   "coachings": [
-    {
-     "promotor": "Lucas Olea",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-06-30",
-     "fecha_ts": "2026-06-30T10:35:00.992000",
-     "total_pct": 95.25,
-     "avg_score": 3.792,
-     "grade": "A",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 100.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 100.0,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 88.12,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 4.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 100.0,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      }
-     ],
-     "notas": "Es importante la gestión realizada en el potenciar de los promotores y el generar la autonomía",
-     "numero": 1,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    }
-   ]
-  },
-  {
-   "nombre": "Pedro Corsino",
-   "supervisores": [
-    "Martín Viqueira"
-   ],
-   "supervisor_actual": "Martín Viqueira",
-   "n_coachings": 2,
-   "ultimo_total": 70.5,
-   "ultima_nota": "B",
-   "primer_total": 79.75,
-   "coachings": [
-    {
-     "promotor": "Pedro Corsino",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-06-10",
-     "fecha_ts": "2026-06-10T09:51:56.301000",
-     "total_pct": 79.75,
-     "avg_score": 3.125,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 85.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 67.5,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 2.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 75.0,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 2.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 100.0,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      }
-     ],
-     "notas": "Llevar una matinal más ordenada respetando siempre los pasos. Darle más tiempo al análisis de la performance de los promotores, para que ayudado por la experiencia se puedan hacer planes de acción más puntuales.",
-     "numero": 1,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    },
-    {
-     "promotor": "Pedro Corsino",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-08-11",
-     "fecha_ts": "2026-08-11T15:51:30.925000",
-     "total_pct": 70.5,
-     "avg_score": 2.75,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 80.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 71.25,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 2.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 1.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 3.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 65.62,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 2.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 66.67,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 2.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 2.0
-        }
-       ]
-      }
-     ],
-     "notas": "Organización de agendas planificadas y cumplimiento en post de cada Salida.",
-     "numero": 2,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    }
-   ]
-  },
-  {
-   "nombre": "Roberto Seco",
-   "supervisores": [
-    "Martín Viqueira"
-   ],
-   "supervisor_actual": "Martín Viqueira",
-   "n_coachings": 1,
-   "ultimo_total": 86.25,
-   "ultima_nota": "B",
-   "primer_total": 86.25,
-   "coachings": [
-    {
-     "promotor": "Roberto Seco",
-     "supervisor": "Martín Viqueira",
-     "fecha": "2026-06-30",
-     "fecha_ts": "2026-06-30T15:48:38.519000",
-     "total_pct": 86.25,
-     "avg_score": 3.417,
-     "grade": "B",
-     "pilares": [
-      {
-       "id": "capabilities",
-       "name": "Capabilities claves para la posición",
-       "short": "Capabilities",
-       "pct": 85.0,
-       "questions": [
-        {
-         "label": "Resiliente",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Excelencia",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Priorización",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Resolución de problemas",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Empatía",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "cascadeo",
-       "name": "Cascadeo de estrategia y entrega de resultados",
-       "short": "Cascadeo estrategia",
-       "pct": 92.5,
-       "questions": [
-        {
-         "label": "Analiza y desglosa performance de zona",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Respeta estructura de la matinal",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conciencia de compromiso en planificación",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Selecciona con criterio los KPIs",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Potencia a promotores en planificación",
-         "weight": 2,
-         "score": 4.0
-        },
-        {
-         "label": "Chequea anomalías de performance diaria",
-         "weight": 3,
-         "score": 2.0
-        }
-       ]
-      },
-      {
-       "id": "oportunidades",
-       "name": "Detección de oportunidades",
-       "short": "Oportunidades",
-       "pct": 81.88,
-       "questions": [
-        {
-         "label": "Conoce su cartera de clientes / Top clientes",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Sabe qué clientes son clave para Share cerveza",
-         "weight": 4,
-         "score": 3.0
-        },
-        {
-         "label": "Firme con su equipo en gestión de bajas/altas",
-         "weight": 3,
-         "score": 3.0
-        },
-        {
-         "label": "Conoce y gestiona los KPIs comerciales",
-         "weight": 4,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa presencia de marcas necesarias en PDV",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Revisa negociación/saldo/contraprestación",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa % de TS/Gasto del cliente",
-         "weight": 4,
-         "score": 1.0
-        },
-        {
-         "label": "Evalúa ejecución y destaque de marcas",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Revisa repago de equipos de frío",
-         "weight": 2,
-         "score": 3.0
-        },
-        {
-         "label": "Post ruta: feedback claro y plan de acción",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      },
-      {
-       "id": "liderazgo",
-       "name": "Liderar y desarrollar promotores",
-       "short": "Liderazgo equipo",
-       "pct": 91.67,
-       "questions": [
-        {
-         "label": "Genera buen clima / honestidad y confianza",
-         "weight": 5,
-         "score": 4.0
-        },
-        {
-         "label": "Conoce fortalezas y puntos de mejora del equipo",
-         "weight": 5,
-         "score": 3.0
-        },
-        {
-         "label": "Se preocupa por potenciar a sus reportes",
-         "weight": 5,
-         "score": 4.0
-        }
-       ]
-      }
-     ],
-     "notas": "Considero importante poder tener mucha claridad de los indicadores de Share de los PDV, y creo que tenemos una gran oportunidad en la formación de Melinao",
-     "numero": 1,
-     "vendor_supervisor_latest": "Martín Viqueira"
-    }
-   ]
-  }
- ],
- "generated_from": "Respuestas_-_Coaching_Promotor_de_Ventas_-_2026__respuestas_.xlsx",
- "n_registros": 7
-}</script>
+<script id="coaching-data" type="application/json">{"pilares_meta":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities"},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia"},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades"},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo"}],"vendors":[{"nombre":"Antual Paula","supervisores":["Martín Viqueira"],"supervisor_actual":"Martín Viqueira","n_coachings":2,"ultimo_total":70.75,"ultima_nota":"B","primer_total":52.75,"coachings":[{"promotor":"Antual Paula","supervisor":"Martín Viqueira","fecha":"2026-07-06","fecha_raw":null,"total_pct":52.75,"avg_score":2.083,"grade":"C","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":60,"questions":[{"label":"Resiliente","weight":5,"score":2},{"label":"Excelencia","weight":5,"score":2},{"label":"Priorización","weight":5,"score":2},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":3}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":50,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":2},{"label":"Conciencia de compromiso en planificación","weight":4,"score":2},{"label":"Selecciona con criterio los KPIs","weight":2,"score":2},{"label":"Potencia a promotores en planificación","weight":2,"score":2},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":47.5,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":2},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":2},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":2},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":2},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":2},{"label":"Revisa repago de equipos de frío","weight":2,"score":2},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":2}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":58.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":2},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":2}]}],"notas":"Primeros días como supervisora del canal. Comenzamos con conocer al top 20 de clientes del canal, procesos y seguimientos diarios","_ts":1783360787000,"_rowOrder":14,"numero":1},{"promotor":"Antual Paula","supervisor":"Martín Viqueira","fecha":"2026-08-07","fecha_raw":null,"total_pct":70.75,"avg_score":2.792,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":80,"questions":[{"label":"Resiliente","weight":5,"score":4},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":4},{"label":"Empatía","weight":5,"score":2}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":70,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":3},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":2},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":2},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":63.75,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":2},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":2},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":75,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":3}]}],"notas":"Seguir afianzandosé en el puesto aprendiendo nuevos procesos","_ts":1786135347000,"_rowOrder":6,"numero":2}]},{"nombre":"Fernando Moreno","supervisores":["Martín Viqueira"],"supervisor_actual":"Martín Viqueira","n_coachings":4,"ultimo_total":73.75,"ultima_nota":"B","primer_total":65.5,"coachings":[{"promotor":"Fernando Moreno","supervisor":"Martín Viqueira","fecha":"2026-02-25","fecha_raw":null,"total_pct":65.5,"avg_score":2.625,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":65,"questions":[{"label":"Resiliente","weight":5,"score":2},{"label":"Excelencia","weight":5,"score":2},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":3}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":75,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":3},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":54.38,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":2},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":3},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":2},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":2},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":2},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":83.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Trabajar en la ejecución de las batallas críticas de cada PDV. Sermás firme con incumplimiento en cuanto a altas no realizadas en la zona","_ts":1772061025000,"_rowOrder":10,"numero":1},{"promotor":"Fernando Moreno","supervisor":"Martín Viqueira","fecha":"2026-04-09","fecha_raw":null,"total_pct":64.25,"avg_score":2.583,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":60,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":2},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":2},{"label":"Empatía","weight":5,"score":2}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":66.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":65,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":2},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":66.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":2},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":3}]}],"notas":"Importancia de la firmeza ante clientes no dados de alta en la ruta o falta de gestión respecto de disponibilidad de productos focos, ejecuiones etc","_ts":1775754855000,"_rowOrder":12,"numero":2},{"promotor":"Fernando Moreno","supervisor":"Martín Viqueira","fecha":"2026-06-09","fecha_raw":null,"total_pct":80.25,"avg_score":3.208,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":85,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":4},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":86.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":3},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":73.13,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":4},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":83.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":3}]}],"notas":"Contraprestaciones en negociaciones. Balanceo de las rutas y el seguimiento de altas. Buscar feedback más profundos y puntuales","_ts":1781007477000,"_rowOrder":0,"numero":3},{"promotor":"Fernando Moreno","supervisor":"Martín Viqueira","fecha":"2026-08-13","fecha_raw":null,"total_pct":73.75,"avg_score":2.917,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":75,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":2},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":68.75,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":68.75,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":2},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":2},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":91.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Buscar feedbacks mas profundos","_ts":1786643109000,"_rowOrder":5,"numero":4}]},{"nombre":"Lucas Olea","supervisores":["Martín Viqueira"],"supervisor_actual":"Martín Viqueira","n_coachings":3,"ultimo_total":95.25,"ultima_nota":"A","primer_total":86.25,"coachings":[{"promotor":"Lucas Olea","supervisor":"Martín Viqueira","fecha":"2026-02-19","fecha_raw":null,"total_pct":86.25,"avg_score":3.417,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":95,"questions":[{"label":"Resiliente","weight":5,"score":4},{"label":"Excelencia","weight":5,"score":4},{"label":"Priorización","weight":5,"score":4},{"label":"Resolución de problemas","weight":5,"score":4},{"label":"Empatía","weight":5,"score":3}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":96.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":4},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":4},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":73.75,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":4},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":3},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":3},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":2},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":91.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Identificar algunas conductas que pueden afectar en clima grupal","_ts":1771542285000,"_rowOrder":9,"numero":1},{"promotor":"Lucas Olea","supervisor":"Martín Viqueira","fecha":"2026-05-05","fecha_raw":null,"total_pct":84.75,"avg_score":3.375,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":85,"questions":[{"label":"Resiliente","weight":5,"score":4},{"label":"Excelencia","weight":5,"score":4},{"label":"Priorización","weight":5,"score":4},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":2}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":80,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":3},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":87.5,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":4},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":4},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":4},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":4},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":2},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":4},{"label":"Revisa repago de equipos de frío","weight":2,"score":2},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":83.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Importancia de poder gestionar los repagos de EDF.","_ts":1778000717000,"_rowOrder":11,"numero":2},{"promotor":"Lucas Olea","supervisor":"Martín Viqueira","fecha":"2026-06-30","fecha_raw":null,"total_pct":95.25,"avg_score":3.792,"grade":"A","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":100,"questions":[{"label":"Resiliente","weight":5,"score":4},{"label":"Excelencia","weight":5,"score":4},{"label":"Priorización","weight":5,"score":4},{"label":"Resolución de problemas","weight":5,"score":4},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":100,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":4},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":4},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":4}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":88.13,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":4},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":3},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":4},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":4},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":4},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":2},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":100,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":4},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Es importante la gestión realizada en el potenciar de los promotores y el generar la autonomía","_ts":1782826501000,"_rowOrder":2,"numero":3}]},{"nombre":"Pedro Corsino","supervisores":["Martín Viqueira"],"supervisor_actual":"Martín Viqueira","n_coachings":4,"ultimo_total":70.5,"ultima_nota":"B","primer_total":75,"coachings":[{"promotor":"Pedro Corsino","supervisor":"Martín Viqueira","fecha":"2026-01-07","fecha_raw":null,"total_pct":75,"avg_score":2.958,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":80,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":2},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":4},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":70,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":71.25,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":2},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":4},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":83.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":3}]}],"notas":"IMportancia de poder segui un orden en la matinal. Se tocan todos los temas de manera desordenada","_ts":1767823240000,"_rowOrder":8,"numero":1},{"promotor":"Pedro Corsino","supervisor":"Martín Viqueira","fecha":"2026-03-19","fecha_raw":null,"total_pct":75.75,"avg_score":3.042,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":75,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":3}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":71.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":72.5,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":3},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":91.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Importante en las salidas de coaching buscar que el vendedor se desempeñe evitando cerrar las operaciones, o bien hacerlas pero destacando el porque se intervinp","_ts":1773943517000,"_rowOrder":15,"numero":2},{"promotor":"Pedro Corsino","supervisor":"Martín Viqueira","fecha":"2026-06-10","fecha_raw":null,"total_pct":79.75,"avg_score":3.125,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":85,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":4},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":67.5,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":2},{"label":"Conciencia de compromiso en planificación","weight":4,"score":4},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":75,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":2},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":1},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":4},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":4},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":100,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":4},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Llevar una matinal más ordenada respetando siempre los pasos. Darle más tiempo al análisis de la performance de los promotores, para que ayudado por la experiencia se puedan hacer planes de acción más puntuales.","_ts":1781095916000,"_rowOrder":1,"numero":3},{"promotor":"Pedro Corsino","supervisor":"Martín Viqueira","fecha":"2026-08-05","fecha_raw":null,"total_pct":70.5,"avg_score":2.75,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":80,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":71.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":1},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":3}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":65.63,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":2},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":1},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":2},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":66.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":2},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":2}]}],"notas":"Organización de agendas planificadas y cumplimiento en post de cada Salida.","_ts":1785955891000,"_rowOrder":4,"numero":4}]},{"nombre":"Roberto Seco","supervisores":["Martín Viqueira"],"supervisor_actual":"Martín Viqueira","n_coachings":3,"ultimo_total":86.25,"ultima_nota":"B","primer_total":74.5,"coachings":[{"promotor":"Roberto Seco","supervisor":"Martín Viqueira","fecha":"2026-01-06","fecha_raw":null,"total_pct":74.5,"avg_score":2.958,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":75,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":2},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":72.5,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":68.75,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":4},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":1},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":2},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":2},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":3},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":4},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":91.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Importancia de conocer el principal enemigo en cada PDV y allí atacar.","_ts":1767735127000,"_rowOrder":7,"numero":1},{"promotor":"Roberto Seco","supervisor":"Martín Viqueira","fecha":"2026-05-07","fecha_raw":null,"total_pct":72.5,"avg_score":2.875,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":70,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":3},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":2},{"label":"Empatía","weight":5,"score":3}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":66.25,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":2},{"label":"Respeta estructura de la matinal","weight":5,"score":3},{"label":"Conciencia de compromiso en planificación","weight":4,"score":3},{"label":"Selecciona con criterio los KPIs","weight":2,"score":3},{"label":"Potencia a promotores en planificación","weight":2,"score":3},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":73.13,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":3},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":3},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":4},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":3},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":3}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":83.33,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":3},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Trabajar en el análisis de los indicadores de la zona, caidas y crecimientos de PDV.","_ts":1778175721000,"_rowOrder":13,"numero":2},{"promotor":"Roberto Seco","supervisor":"Martín Viqueira","fecha":"2026-06-16","fecha_raw":null,"total_pct":86.25,"avg_score":3.417,"grade":"B","pilares":[{"id":"capabilities","name":"Capabilities claves para la posición","short":"Capabilities","pct":85,"questions":[{"label":"Resiliente","weight":5,"score":3},{"label":"Excelencia","weight":5,"score":4},{"label":"Priorización","weight":5,"score":3},{"label":"Resolución de problemas","weight":5,"score":3},{"label":"Empatía","weight":5,"score":4}]},{"id":"cascadeo","name":"Cascadeo de estrategia y entrega de resultados","short":"Cascadeo estrategia","pct":92.5,"questions":[{"label":"Analiza y desglosa performance de zona","weight":4,"score":4},{"label":"Respeta estructura de la matinal","weight":5,"score":4},{"label":"Conciencia de compromiso en planificación","weight":4,"score":4},{"label":"Selecciona con criterio los KPIs","weight":2,"score":4},{"label":"Potencia a promotores en planificación","weight":2,"score":4},{"label":"Chequea anomalías de performance diaria","weight":3,"score":2}]},{"id":"oportunidades","name":"Detección de oportunidades","short":"Oportunidades","pct":81.88,"questions":[{"label":"Conoce su cartera de clientes / Top clientes","weight":3,"score":3},{"label":"Sabe qué clientes son clave para Share cerveza","weight":4,"score":3},{"label":"Firme con su equipo en gestión de bajas/altas","weight":3,"score":3},{"label":"Conoce y gestiona los KPIs comerciales","weight":4,"score":4},{"label":"Revisa presencia de marcas necesarias en PDV","weight":5,"score":3},{"label":"Revisa negociación/saldo/contraprestación","weight":5,"score":4},{"label":"Revisa % de TS/Gasto del cliente","weight":4,"score":1},{"label":"Evalúa ejecución y destaque de marcas","weight":5,"score":4},{"label":"Revisa repago de equipos de frío","weight":2,"score":3},{"label":"Post ruta: feedback claro y plan de acción","weight":5,"score":4}]},{"id":"liderazgo","name":"Liderar y desarrollar promotores","short":"Liderazgo equipo","pct":91.67,"questions":[{"label":"Genera buen clima / honestidad y confianza","weight":5,"score":4},{"label":"Conoce fortalezas y puntos de mejora del equipo","weight":5,"score":3},{"label":"Se preocupa por potenciar a sus reportes","weight":5,"score":4}]}],"notas":"Considero importante poder tener mucha claridad de los indicadores de Share de los PDV, y creo que tenemos una gran oportunidad en la formación de Melinao","_ts":1781635719000,"_rowOrder":3,"numero":3}]}],"generated_from":"CSV importado manualmente","n_registros":16}</script>
 
 <script>
 const DATA = JSON.parse(document.getElementById('coaching-data').textContent);
@@ -2064,5 +1148,6 @@ document.getElementById('btnDownload').addEventListener('click', () => {
 });
 
 </script>
-</body>
-</html>
+
+
+</body></html>
